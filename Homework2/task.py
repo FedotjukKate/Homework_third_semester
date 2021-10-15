@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from HomeWork1.* import Ui_MainWindow
+from Homework2.ui_Qcheckbox import Ui_MainWindow
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -11,6 +11,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.initUi()
 
     def initUi(self):
+        self.checkBox_1.stateChanged.connect(self.cpryatat)
+        self.checkBox_2.stateChanged.connect(self.cpryatat)
+        self.checkBox_3.stateChanged.connect(self.cpryatat)
+        self.checkBox_4.stateChanged.connect(self.cpryatat)
+
+    def cpryatat(self):
         pass
 
 sys._excepthook = sys.excepthook
