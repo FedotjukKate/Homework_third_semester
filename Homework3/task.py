@@ -17,16 +17,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_3.clicked.connect(self.ymnogit)
 
     def plus(self):
+        if self.textEdit.toPlainText() == "":
+            self.textEdit.setText("0")
+        if self.textEdit_2.toPlainText() == "":
+            self.textEdit_2.setText("0")
         a = float(self.textEdit.toPlainText())
         b = float(self.textEdit_2.toPlainText())
         self.textEdit_3.setText(str(a + b))
 
     def minus(self):
+        if self.textEdit.toPlainText() == "":
+            self.textEdit.setText("0")
+        if self.textEdit_2.toPlainText() == "":
+            self.textEdit_2.setText("0")
         a = float(self.textEdit.toPlainText())
         b = float(self.textEdit_2.toPlainText())
         self.textEdit_3.setText(str(a - b))
 
     def ymnogit(self):
+        if self.textEdit.toPlainText() == "":
+            self.textEdit.setText("0")
+        if self.textEdit_2.toPlainText() == "":
+            self.textEdit_2.setText("0")
         a = float(self.textEdit.toPlainText())
         b = float(self.textEdit_2.toPlainText())
         self.textEdit_3.setText(str(a * b))
