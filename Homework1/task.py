@@ -10,7 +10,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.initUi()
 
     def initUi(self):
+        self.pushButton.clicked.connect(self.fokys)
+
+    def fokys(self):
         pass
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
