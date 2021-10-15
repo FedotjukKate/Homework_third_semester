@@ -17,7 +17,27 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.checkBox_4.stateChanged.connect(self.cpryatat)
 
     def cpryatat(self):
-        pass
+        if self.sender().text().endswith("1"):
+            if self.textBrowser_1.isHidden():
+                self.textBrowser_1.show()
+            else:
+                self.textBrowser_1.hide()
+        if self.sender().text().endswith("2"):
+            if self.textBrowser_2.isHidden():
+                self.textBrowser_2.show()
+            else:
+                self.textBrowser_2.hide()
+        if self.sender().text().endswith("3"):
+            if self.textBrowser_3.isHidden():
+                self.textBrowser_3.show()
+            else:
+                self.textBrowser_3.hide()
+        if self.sender().text().endswith("4"):
+            if self.textBrowser_4.isHidden():
+                self.textBrowser_4.show()
+            else:
+                self.textBrowser_4.hide()
+
 
 sys._excepthook = sys.excepthook
 
