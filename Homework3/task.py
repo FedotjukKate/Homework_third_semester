@@ -15,6 +15,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton.clicked.connect(self.plus)
         self.pushButton_2.clicked.connect(self.minus)
         self.pushButton_3.clicked.connect(self.ymnogit)
+        self.textEdit_3.setDisabled(True)
 
     def plus(self):
         if self.textEdit.toPlainText() == "":
