@@ -13,7 +13,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton.clicked.connect(self.fokys)
 
     def fokys(self):
-        pass
+        if "->" == self.pushButton.text():
+            self.pushButton.setText("<-")
+            self.textEdit_2.setText(self.textEdit_1.toPlainText())
+            self.textEdit_1.setText("")
+        else:
+            self.pushButton.setText("->")
+            self.textEdit_1.setText(self.textEdit_2.toPlainText())
+            self.textEdit_2.setText("")
 
 
 if __name__ == '__main__':
