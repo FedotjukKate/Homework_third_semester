@@ -1,7 +1,8 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from Homework3.* import Ui_MainWindow
+
+from Homework3.cacylator import Ui_MainWindow
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -11,7 +12,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.initUi()
 
     def initUi(self):
+        self.pushButton.clicked.connect(self.plus)
+        self.pushButton_2.clicked.connect(self.minus)
+        self.pushButton_3.clicked.connect(self.ymnogit)
+
+    def plus(self):
         pass
+
+    def minus(self):
+        pass
+
+    def ymnogit(self):
+        pass
+
 
 sys._excepthook = sys.excepthook
 
