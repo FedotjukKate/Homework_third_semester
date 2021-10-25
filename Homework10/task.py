@@ -29,35 +29,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except IOError:
             self.label_file.setText(f'файл {self.plainTextEdit_File.toPlainText()} не найден')
         else:
-            with open(self.plainTextEdit_File.toPlainText(), "r") as f:
-                try:
-                    f.readlines()
-                except UnicodeDecodeError:
-                    self.label_file.setText(f'В файле {self.plainTextEdit_File.toPlainText()} содержаться'
-                                            f' некорректные данные')
-                else:
-                    with open(self.plainTextEdit_File.toPlainText(), "r") as f:
-                        lst = [line.strip() for line in f]
-                        lst1 = []
-                        P = True
-                        for i in lst:
-                            for number in i.split(" "):
-                                try:
-                                    int(number)
-                                except ValueError:
-                                    self.label_file.setText(f'В файле {self.plainTextEdit_File.toPlainText()} '
-                                                            f'содержаться некорректные данные')
-                                    P = False
-                                else:
-                                    lst1.append(int(number))
-                        if P:
-                            a, b, c = str(max(lst1)), str(min(lst1)), str(round(sum(lst1) / len(lst1), 2))
-                            self.plainTextEdit_max.setPlainText(a)
-                            self.plainTextEdit_min.setPlainText(b)
-                            self.plainTextEdit_middle.setPlainText(c)
-                            self.label_file.setText(f'Значения для файла {self.plainTextEdit_File.toPlainText()}')
-                            with open("output.txt", "a") as t:
-                                t.write(f"{a} {b} {c} \n")
+            with open(self.plainTextEdit_File.toPlainText(), "r", encoding='utf-8') as f:
+                lst = [line.strip() for line in f]
+                lst1 = []
+                P = True
+                for i in lst:
+                    for number in i.split(" "):
+                        try:
+                            int(number)
+                        except ValueError:
+                            self.label_file.setText(f'В файле {self.plainTextEdit_File.toPlainText()} '
+                                                    f'содержаться некорректные данные')
+                            P = False
+                        else:
+                            lst1.append(int(number))
+                if P:
+                    a, b, c = str(max(lst1)), str(min(lst1)), str(round(sum(lst1) / len(lst1), 2))
+                    self.plainTextEdit_max.setPlainText(a)
+                    self.plainTextEdit_min.setPlainText(b)
+                    self.plainTextEdit_middle.setPlainText(c)
+                    self.label_file.setText(f'Значения для файла {self.plainTextEdit_File.toPlainText()}')
+                    with open("output.txt", "a") as t:
+                        t.write(f"{a} {b} {c} \n")
 
 
 sys._excepthook = sys.excepthook
