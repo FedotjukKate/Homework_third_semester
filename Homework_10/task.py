@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from Homework10.File import Ui_MainWindow
+from Homework_10.File import Ui_MainWindow
 
 # data.txt целые числа (сработает)
 # data_2.txt целые числа (сработает)
