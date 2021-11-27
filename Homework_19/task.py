@@ -1,6 +1,7 @@
 import sqlite3
 
-connection = sqlite3.connect("films_1.sqlite")
+file = input("Введите название файла: ")
+connection = sqlite3.connect(file)
 cursor = connection.cursor()
 
 result = cursor.execute("""
