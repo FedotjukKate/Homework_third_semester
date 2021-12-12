@@ -14,7 +14,9 @@ def matrix_in():
 # matrix = matrix_in()
 
 
-matrix = [[0, 3, 0, 0, 1], [3, 0, 5, 0, 4], [0, 5, 0, 2, 6], [0, 0, 2, 0, 7], [1, 4, 6, 7, 0]]
+matrix = [[0, 4, 0, 0, 0, 0, 0, 0, 8], [4, 0, 8, 0, 0, 0, 0, 0, 11], [0, 8, 0, 7, 0, 4, 0, 2, 0],
+          [0, 0, 7, 0, 9, 14, 0, 0, 0], [0, 0, 0, 9, 0, 10, 0, 0, 0], [0, 0, 4, 14, 10, 0, 2, 0, 0],
+          [0, 0, 0, 0, 0, 2, 0, 6, 1], [0, 0, 2, 0, 0, 0, 6, 0, 7], [8, 11, 0, 0, 0, 0, 1, 7, 0]]
 lst = []
 for i in range(len(matrix)):
     for j in range(len(matrix)):
@@ -24,42 +26,39 @@ lst = sorted(lst, key=lambda x: x[2])
 lst_1 = []
 ls = []
 P = True
-while P:
-    for i in range(len(lst)):
-        if i == 0:
-            lst_1.append(lst[i])
-            ls.append(lst[i][0])
-            ls.append(lst[i][1])
-        elif lst[i][0] not in ls and lst[i][1] in ls:
-            elem = lst[i][2]
-            p = lst[i]
-            for line in lst:
-                if line[0] == lst[i][0] and line != lst[i] and line[1] in ls:
-                    if line[2] < elem:
-                        elem = line[2]
-                        p = line
-                elif line[1] == lst[i][0] and line != lst[i] and line[0] in ls:
-                    if line[2] < elem:
-                        elem = line[2]
-                        p = line
-            lst_1.append(p)
-            ls.append(p[0])
-        elif lst[i][1] not in ls and lst[i][0] in ls:
-            elem = lst[i][2]
-            p = lst[i]
-            for line in lst:
-                if line[1] == lst[i][1] and line != lst[i] and line[0] in ls:
-                    if line[2] < elem:
-                        elem = line[2]
-                        p = line
-                elif line[0] == lst[i][1] and line != lst[i] and line[1] in ls:
-                    if line[2] < elem:
-                        elem = line[2]
-                        p = line
-            lst_1.append(p)
-            ls.append(p[1])
-    if len(set(ls)) == len(matrix):
-        P = False
+for i in range(len(lst)):
+    if i == 0:
+        lst_1.append(lst[i])
+        ls.append(lst[i][0])
+        ls.append(lst[i][1])
+    elif lst[i][0] not in ls and lst[i][1] in ls:
+        elem = lst[i][2]
+        p = lst[i]
+        for line in lst:
+            if line[0] == lst[i][0] and line != lst[i] and line[1] in ls:
+                if line[2] < elem:
+                    elem = line[2]
+                    p = line
+            elif line[1] == lst[i][0] and line != lst[i] and line[0] in ls:
+                if line[2] < elem:
+                    elem = line[2]
+                    p = line
+        lst_1.append(p)
+        ls.append(p[0])
+    elif lst[i][1] not in ls and lst[i][0] in ls:
+        elem = lst[i][2]
+        p = lst[i]
+        for line in lst:
+            if line[1] == lst[i][1] and line != lst[i] and line[0] in ls:
+                if line[2] < elem:
+                    elem = line[2]
+                    p = line
+            elif line[0] == lst[i][1] and line != lst[i] and line[1] in ls:
+                if line[2] < elem:
+                    elem = line[2]
+                    p = line
+        lst_1.append(p)
+        ls.append(p[1])
 matrix_2 = [[0 for j in range(len(matrix))] for i in range(len(matrix))]
 for i in range(len(matrix)):
     for j in range(len(matrix)):
